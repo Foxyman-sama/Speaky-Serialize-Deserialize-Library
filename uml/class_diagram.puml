@@ -1,0 +1,29 @@
+@startuml class_diagram
+
+ProtoClass <|-- MessageProto
+ProtoClass <|-- NewConnectionProto
+
+interface ProtoClass {
+    + {abstract} ~ProtoClass()
+    + {abstract} serialize()
+    + {abstract} deserialize()
+}
+
+class MessageProto {
+    + MessageProto()
+    + MessageProto(message)
+    + get_message()
+
+    - obj
+}
+
+class NewConnectionProto {
+    + NewConnectionProto()
+    + NewConnectionProto(name, room_id)
+    + get_name()
+    + get_room_id()
+
+    - obj
+}
+
+@enduml
